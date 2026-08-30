@@ -1,0 +1,281 @@
+{
+  "firm": {
+    "name": "SAWYER QUINE & CO LIMITED",
+    "address": "202 Merlin Park Ormskirk L40 8JY"
+  },
+  "generated": "2026-08-30",
+  "book_size": 29,
+  "summary": {
+    "total": 26,
+    "critical": 10,
+    "warning": 16,
+    "idv_overdue": 2,
+    "idv_pending": 20,
+    "accounts_overdue": 1,
+    "confirmation_overdue": 1,
+    "money_gbp": 375,
+    "companies": 13
+  },
+  "findings": [
+    {
+      "company_number": "10275222",
+      "company_name": "SCHOOL LANE FARM LIMITED",
+      "kind": "accounts_overdue",
+      "severity": "critical",
+      "detail": "Отчётность просрочена на 31 дн. (срок был 2026-07-30)",
+      "due": "2026-07-30",
+      "days": -31,
+      "money_gbp": 375
+    },
+    {
+      "company_number": "12646918",
+      "company_name": "THE DOGS DANGLEEZ LIMITED",
+      "kind": "confirmation_overdue",
+      "severity": "critical",
+      "detail": "Confirmation statement просрочен на 74 дн. — основание для исключения из реестра",
+      "due": "2026-06-17",
+      "days": -74,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "12646918",
+      "company_name": "THE DOGS DANGLEEZ LIMITED",
+      "kind": "idv_overdue",
+      "severity": "critical",
+      "detail": "EVANS, Clifford: персональный срок верификации личности истёк 74 дн. назад — подача документов заблокирована, действия директора без верификации образуют состав преступления по ECCTA",
+      "due": "2026-06-17",
+      "days": -74,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "12646918",
+      "company_name": "THE DOGS DANGLEEZ LIMITED",
+      "kind": "idv_overdue",
+      "severity": "critical",
+      "detail": "EVANS, Tracey Anne: персональный срок верификации личности истёк 74 дн. назад — подача документов заблокирована, действия директора без верификации образуют состав преступления по ECCTA",
+      "due": "2026-06-17",
+      "days": -74,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "14316042",
+      "company_name": "LAUREL'S WOOD COMMUNITY INTEREST COMPANY",
+      "kind": "idv_pending",
+      "severity": "critical",
+      "detail": "BYRNE, Ceara Noelle: личность не верифицирована, остаётся 7 дн.",
+      "due": "2026-09-06",
+      "days": 7,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "14316042",
+      "company_name": "LAUREL'S WOOD COMMUNITY INTEREST COMPANY",
+      "kind": "idv_pending",
+      "severity": "critical",
+      "detail": "GLEAVES, Roberta Rose: личность не верифицирована, остаётся 7 дн.",
+      "due": "2026-09-06",
+      "days": 7,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "14316042",
+      "company_name": "LAUREL'S WOOD COMMUNITY INTEREST COMPANY",
+      "kind": "idv_pending",
+      "severity": "critical",
+      "detail": "HUNTER, Christopher Blakeway: личность не верифицирована, остаётся 7 дн.",
+      "due": "2026-09-06",
+      "days": 7,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "14316042",
+      "company_name": "LAUREL'S WOOD COMMUNITY INTEREST COMPANY",
+      "kind": "idv_pending",
+      "severity": "critical",
+      "detail": "MCCOWAN, Leon: личность не верифицирована, остаётся 7 дн.",
+      "due": "2026-09-06",
+      "days": 7,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "15122588",
+      "company_name": "ADAM ORTHOPAEDICS LTD",
+      "kind": "idv_pending",
+      "severity": "critical",
+      "detail": "ADAM, John Rami: личность не верифицирована, остаётся 21 дн.",
+      "due": "2026-09-20",
+      "days": 21,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "15122588",
+      "company_name": "ADAM ORTHOPAEDICS LTD",
+      "kind": "idv_pending",
+      "severity": "critical",
+      "detail": "ADAM, Michelle Jennifer: личность не верифицирована, остаётся 21 дн.",
+      "due": "2026-09-20",
+      "days": 21,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "14316042",
+      "company_name": "LAUREL'S WOOD COMMUNITY INTEREST COMPANY",
+      "kind": "confirmation_due_soon",
+      "severity": "warning",
+      "detail": "Confirmation statement должен быть подан через 7 дн.",
+      "due": "2026-09-06",
+      "days": 7,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "15122588",
+      "company_name": "ADAM ORTHOPAEDICS LTD",
+      "kind": "confirmation_due_soon",
+      "severity": "warning",
+      "detail": "Confirmation statement должен быть подан через 21 дн.",
+      "due": "2026-09-20",
+      "days": 21,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "08576990",
+      "company_name": "FAMILY PSYCHOLOGY SERVICES LIMITED",
+      "kind": "idv_pending",
+      "severity": "warning",
+      "detail": "CRAIG, Jaime Stewart, Dr: личность не верифицирована, остаётся 37 дн.",
+      "due": "2026-10-06",
+      "days": 37,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "14400888",
+      "company_name": "SALISBURY GALLBLADDER SURGERY LTD",
+      "kind": "idv_pending",
+      "severity": "warning",
+      "detail": "BOND, Amanda Kirsty: личность не верифицирована, остаётся 49 дн.",
+      "due": "2026-10-18",
+      "days": 49,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "14400888",
+      "company_name": "SALISBURY GALLBLADDER SURGERY LTD",
+      "kind": "idv_pending",
+      "severity": "warning",
+      "detail": "PULLIN, Mark Jeffrey: личность не верифицирована, остаётся 49 дн.",
+      "due": "2026-10-18",
+      "days": 49,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "06672972",
+      "company_name": "HOMZE INVESTMENTS LIMITED",
+      "kind": "idv_pending",
+      "severity": "warning",
+      "detail": "PURCELL, Eleni Sophia: личность не верифицирована, остаётся 77 дн.",
+      "due": "2026-11-15",
+      "days": 77,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "06672972",
+      "company_name": "HOMZE INVESTMENTS LIMITED",
+      "kind": "idv_pending",
+      "severity": "warning",
+      "detail": "PURCELL, Jonathan David: личность не верифицирована, остаётся 77 дн.",
+      "due": "2026-11-15",
+      "days": 77,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "07621048",
+      "company_name": "HOMZE DEVELOPMENTS LIMITED",
+      "kind": "idv_pending",
+      "severity": "warning",
+      "detail": "PURCELL, Jonathan David: личность не верифицирована, остаётся 80 дн.",
+      "due": "2026-11-18",
+      "days": 80,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "06279183",
+      "company_name": "HOMZE LIMITED",
+      "kind": "idv_pending",
+      "severity": "warning",
+      "detail": "PURCELL, Eleni Sophia: личность не верифицирована, остаётся 80 дн.",
+      "due": "2026-11-18",
+      "days": 80,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "04256926",
+      "company_name": "J & M T PROPERTIES LIMITED",
+      "kind": "idv_pending",
+      "severity": "warning",
+      "detail": "LAWRENCE, Marion Teresa: личность не верифицирована, остаётся 80 дн.",
+      "due": "2026-11-18",
+      "days": 80,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "06672972",
+      "company_name": "HOMZE INVESTMENTS LIMITED",
+      "kind": "idv_pending",
+      "severity": "warning",
+      "detail": "PURCELL, Eleni Sophia: личность не верифицирована, остаётся 80 дн.",
+      "due": "2026-11-18",
+      "days": 80,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "05409460",
+      "company_name": "THOMAS TROTTER LIMITED",
+      "kind": "idv_pending",
+      "severity": "warning",
+      "detail": "PARRINGTON, Patricia Anne: личность не верифицирована, остаётся 80 дн.",
+      "due": "2026-11-18",
+      "days": 80,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "10646306",
+      "company_name": "THE SOUTHPORT PROPERTY COMPANY LIMITED",
+      "kind": "idv_pending",
+      "severity": "warning",
+      "detail": "PURCELL, Jonathan David: личность не верифицирована, остаётся 80 дн.",
+      "due": "2026-11-18",
+      "days": 80,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "16862165",
+      "company_name": "SPARE PROPERTY LTD",
+      "kind": "idv_pending",
+      "severity": "warning",
+      "detail": "GOULDEN, James Matthew: личность не верифицирована, остаётся 92 дн.",
+      "due": "2026-11-30",
+      "days": 92,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "16862165",
+      "company_name": "SPARE PROPERTY LTD",
+      "kind": "idv_pending",
+      "severity": "warning",
+      "detail": "GOULDEN, Sarah Lynette: личность не верифицирована, остаётся 92 дн.",
+      "due": "2026-11-30",
+      "days": 92,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "16862165",
+      "company_name": "SPARE PROPERTY LTD",
+      "kind": "idv_pending",
+      "severity": "warning",
+      "detail": "QUIGLEY, Daniel: личность не верифицирована, остаётся 92 дн.",
+      "due": "2026-11-30",
+      "days": 92,
+      "money_gbp": 0
+    }
+  ]
+}

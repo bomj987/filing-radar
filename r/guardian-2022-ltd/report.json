@@ -1,0 +1,441 @@
+{
+  "firm": {
+    "name": "GUARDIAN 2022 LTD",
+    "address": "2 William Street Newtownards Northern Ireland BT23 4AH"
+  },
+  "generated": "2026-08-30",
+  "book_size": 62,
+  "summary": {
+    "total": 42,
+    "critical": 22,
+    "warning": 20,
+    "idv_overdue": 10,
+    "idv_pending": 23,
+    "accounts_overdue": 0,
+    "confirmation_overdue": 3,
+    "money_gbp": 0,
+    "companies": 21
+  },
+  "findings": [
+    {
+      "company_number": "NI058204",
+      "company_name": "BELMONT FURNISHINGS LIMITED",
+      "kind": "confirmation_overdue",
+      "severity": "critical",
+      "detail": "Confirmation statement просрочен на 176 дн. — основание для исключения из реестра",
+      "due": "2026-03-07",
+      "days": -176,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI058204",
+      "company_name": "BELMONT FURNISHINGS LIMITED",
+      "kind": "idv_overdue",
+      "severity": "critical",
+      "detail": "DOUGLAS, Gillian Deborah: персональный срок верификации личности истёк 176 дн. назад — подача документов заблокирована, действия директора без верификации образуют состав преступления по ECCTA",
+      "due": "2026-03-07",
+      "days": -176,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI058204",
+      "company_name": "BELMONT FURNISHINGS LIMITED",
+      "kind": "idv_overdue",
+      "severity": "critical",
+      "detail": "DOUGLAS, William Paul: персональный срок верификации личности истёк 176 дн. назад — подача документов заблокирована, действия директора без верификации образуют состав преступления по ECCTA",
+      "due": "2026-03-07",
+      "days": -176,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI058204",
+      "company_name": "BELMONT FURNISHINGS LIMITED",
+      "kind": "idv_overdue",
+      "severity": "critical",
+      "detail": "HARVEY, Kenneth Norman: персональный срок верификации личности истёк 176 дн. назад — подача документов заблокирована, действия директора без верификации образуют состав преступления по ECCTA",
+      "due": "2026-03-07",
+      "days": -176,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI058204",
+      "company_name": "BELMONT FURNISHINGS LIMITED",
+      "kind": "idv_overdue",
+      "severity": "critical",
+      "detail": "HARVEY, Sharon Elizabeth: персональный срок верификации личности истёк 176 дн. назад — подача документов заблокирована, действия директора без верификации образуют состав преступления по ECCTA",
+      "due": "2026-03-07",
+      "days": -176,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI058204",
+      "company_name": "BELMONT FURNISHINGS LIMITED",
+      "kind": "idv_overdue",
+      "severity": "critical",
+      "detail": "HARVEY, William Desmond: персональный срок верификации личности истёк 176 дн. назад — подача документов заблокирована, действия директора без верификации образуют состав преступления по ECCTA",
+      "due": "2026-03-07",
+      "days": -176,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI727353",
+      "company_name": "J&J LEASING (NI) LTD",
+      "kind": "idv_overdue",
+      "severity": "critical",
+      "detail": "WEBB, Jessica Lily Foster: персональный срок верификации личности истёк 158 дн. назад — подача документов заблокирована, действия директора без верификации образуют состав преступления по ECCTA",
+      "due": "2026-03-25",
+      "days": -158,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI727353",
+      "company_name": "J&J LEASING (NI) LTD",
+      "kind": "idv_overdue",
+      "severity": "critical",
+      "detail": "WEBB, Stuart: персональный срок верификации личности истёк 158 дн. назад — подача документов заблокирована, действия директора без верификации образуют состав преступления по ECCTA",
+      "due": "2026-03-25",
+      "days": -158,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI662256",
+      "company_name": "HOT HATCH CAR SALES LTD",
+      "kind": "confirmation_overdue",
+      "severity": "critical",
+      "detail": "Confirmation statement просрочен на 2 дн. — основание для исключения из реестра",
+      "due": "2026-08-28",
+      "days": -2,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI662256",
+      "company_name": "HOT HATCH CAR SALES LTD",
+      "kind": "idv_overdue",
+      "severity": "critical",
+      "detail": "COCHRANE, Robert Brian: персональный срок верификации личности истёк 2 дн. назад — подача документов заблокирована, действия директора без верификации образуют состав преступления по ECCTA",
+      "due": "2026-08-28",
+      "days": -2,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI640259",
+      "company_name": "WILLIAMS HOMES (DONAGHADEE) LTD.",
+      "kind": "confirmation_overdue",
+      "severity": "critical",
+      "detail": "Confirmation statement просрочен на 1 дн. — основание для исключения из реестра",
+      "due": "2026-08-29",
+      "days": -1,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI640259",
+      "company_name": "WILLIAMS HOMES (DONAGHADEE) LTD.",
+      "kind": "idv_overdue",
+      "severity": "critical",
+      "detail": "WILLIAMS, Joanne: персональный срок верификации личности истёк 1 дн. назад — подача документов заблокирована, действия директора без верификации образуют состав преступления по ECCTA",
+      "due": "2026-08-29",
+      "days": -1,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI640259",
+      "company_name": "WILLIAMS HOMES (DONAGHADEE) LTD.",
+      "kind": "idv_overdue",
+      "severity": "critical",
+      "detail": "WILLIAMS, Paul: персональный срок верификации личности истёк 1 дн. назад — подача документов заблокирована, действия директора без верификации образуют состав преступления по ECCTA",
+      "due": "2026-08-29",
+      "days": -1,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI641914",
+      "company_name": "EAT N.I. LTD",
+      "kind": "idv_pending",
+      "severity": "critical",
+      "detail": "BOYD, Avril: личность не верифицирована, остаётся 3 дн.",
+      "due": "2026-09-02",
+      "days": 3,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI690555",
+      "company_name": "JC SERVICES & MAINTENANCE LTD",
+      "kind": "idv_pending",
+      "severity": "critical",
+      "detail": "CLARKE, Jonathan Albert: личность не верифицирована, остаётся 5 дн.",
+      "due": "2026-09-04",
+      "days": 5,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI658833",
+      "company_name": "INDUSTRIAL LAUNDRY MACHINERY LTD",
+      "kind": "idv_pending",
+      "severity": "critical",
+      "detail": "FLAMIGNI, Angelo: личность не верифицирована, остаётся 6 дн.",
+      "due": "2026-09-05",
+      "days": 6,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI633250",
+      "company_name": "WILLIAMS HOMES LIMITED",
+      "kind": "idv_pending",
+      "severity": "critical",
+      "detail": "WILLIAMS, Joanne Irenee: личность не верифицирована, остаётся 9 дн.",
+      "due": "2026-09-08",
+      "days": 9,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI633250",
+      "company_name": "WILLIAMS HOMES LIMITED",
+      "kind": "idv_pending",
+      "severity": "critical",
+      "detail": "WILLIAMS, Paul: личность не верифицирована, остаётся 9 дн.",
+      "due": "2026-09-08",
+      "days": 9,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI732747",
+      "company_name": "MCCARTHY PROPERTIES (PORTAFERRY) LTD",
+      "kind": "idv_pending",
+      "severity": "critical",
+      "detail": "FORTUNE, Kate: личность не верифицирована, остаётся 11 дн.",
+      "due": "2026-09-10",
+      "days": 11,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI732747",
+      "company_name": "MCCARTHY PROPERTIES (PORTAFERRY) LTD",
+      "kind": "idv_pending",
+      "severity": "critical",
+      "detail": "MCCARTHY, Conor: личность не верифицирована, остаётся 11 дн.",
+      "due": "2026-09-10",
+      "days": 11,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI702673",
+      "company_name": "COASTQUARTER DEVELOPMENTS NI LTD",
+      "kind": "idv_pending",
+      "severity": "critical",
+      "detail": "THOMPSON, Karina Roberta: личность не верифицирована, остаётся 17 дн.",
+      "due": "2026-09-16",
+      "days": 17,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI060842",
+      "company_name": "FACELIFT PROPERTY DEVELOPMENT LTD",
+      "kind": "idv_pending",
+      "severity": "critical",
+      "detail": "PARRY, Philip Robert: личность не верифицирована, остаётся 30 дн.",
+      "due": "2026-09-29",
+      "days": 30,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI641914",
+      "company_name": "EAT N.I. LTD",
+      "kind": "confirmation_due_soon",
+      "severity": "warning",
+      "detail": "Confirmation statement должен быть подан через 3 дн.",
+      "due": "2026-09-02",
+      "days": 3,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI690555",
+      "company_name": "JC SERVICES & MAINTENANCE LTD",
+      "kind": "confirmation_due_soon",
+      "severity": "warning",
+      "detail": "Confirmation statement должен быть подан через 5 дн.",
+      "due": "2026-09-04",
+      "days": 5,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI658833",
+      "company_name": "INDUSTRIAL LAUNDRY MACHINERY LTD",
+      "kind": "confirmation_due_soon",
+      "severity": "warning",
+      "detail": "Confirmation statement должен быть подан через 6 дн.",
+      "due": "2026-09-05",
+      "days": 6,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI633250",
+      "company_name": "WILLIAMS HOMES LIMITED",
+      "kind": "confirmation_due_soon",
+      "severity": "warning",
+      "detail": "Confirmation statement должен быть подан через 9 дн.",
+      "due": "2026-09-08",
+      "days": 9,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI702673",
+      "company_name": "COASTQUARTER DEVELOPMENTS NI LTD",
+      "kind": "confirmation_due_soon",
+      "severity": "warning",
+      "detail": "Confirmation statement должен быть подан через 17 дн.",
+      "due": "2026-09-16",
+      "days": 17,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI060842",
+      "company_name": "FACELIFT PROPERTY DEVELOPMENT LTD",
+      "kind": "confirmation_due_soon",
+      "severity": "warning",
+      "detail": "Confirmation statement должен быть подан через 30 дн.",
+      "due": "2026-09-29",
+      "days": 30,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI672814",
+      "company_name": "PR BUSINESS GROWTH SERVICES LTD",
+      "kind": "idv_pending",
+      "severity": "warning",
+      "detail": "RUSSELL, Jill: личность не верифицирована, остаётся 36 дн.",
+      "due": "2026-10-05",
+      "days": 36,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI672814",
+      "company_name": "PR BUSINESS GROWTH SERVICES LTD",
+      "kind": "idv_pending",
+      "severity": "warning",
+      "detail": "RUSSELL, Peter: личность не верифицирована, остаётся 36 дн.",
+      "due": "2026-10-05",
+      "days": 36,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI070871",
+      "company_name": "TABLE 10 (NI) LTD",
+      "kind": "idv_pending",
+      "severity": "warning",
+      "detail": "BOYD, Nigel: личность не верифицирована, остаётся 51 дн.",
+      "due": "2026-10-20",
+      "days": 51,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI070871",
+      "company_name": "TABLE 10 (NI) LTD",
+      "kind": "idv_pending",
+      "severity": "warning",
+      "detail": "MCCOY, Alana-June: личность не верифицирована, остаётся 51 дн.",
+      "due": "2026-10-20",
+      "days": 51,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI673300",
+      "company_name": "LD TV RENTALS LTD",
+      "kind": "idv_pending",
+      "severity": "warning",
+      "detail": "DUFF, Hayley: личность не верифицирована, остаётся 56 дн.",
+      "due": "2026-10-25",
+      "days": 56,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI683291",
+      "company_name": "MCNALLY & TURNER PROPERTIES LTD",
+      "kind": "idv_pending",
+      "severity": "warning",
+      "detail": "MCNALLY, John Ronan, Dr: личность не верифицирована, остаётся 66 дн.",
+      "due": "2026-11-04",
+      "days": 66,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI683291",
+      "company_name": "MCNALLY & TURNER PROPERTIES LTD",
+      "kind": "idv_pending",
+      "severity": "warning",
+      "detail": "TURNER, Joanna, Dr: личность не верифицирована, остаётся 66 дн.",
+      "due": "2026-11-04",
+      "days": 66,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI734769",
+      "company_name": "LEWIS DUFF CAR SALES LTD",
+      "kind": "idv_pending",
+      "severity": "warning",
+      "detail": "DUFF, Lewis: личность не верифицирована, остаётся 71 дн.",
+      "due": "2026-11-09",
+      "days": 71,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI645122",
+      "company_name": "MCCARTHY HOMES (PORTAFERRY) LTD.",
+      "kind": "idv_pending",
+      "severity": "warning",
+      "detail": "RANKIN, Pauline: личность не верифицирована, остаётся 80 дн.",
+      "due": "2026-11-18",
+      "days": 80,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI035968",
+      "company_name": "SAMCHRIS CONSULTANTS LIMITED",
+      "kind": "idv_pending",
+      "severity": "warning",
+      "detail": "LUNN, Angela Elizabeth: личность не верифицирована, остаётся 80 дн.",
+      "due": "2026-11-18",
+      "days": 80,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI060842",
+      "company_name": "FACELIFT PROPERTY DEVELOPMENT LTD",
+      "kind": "idv_pending",
+      "severity": "warning",
+      "detail": "PORTER, Gillian Michelle: личность не верифицирована, остаётся 80 дн.",
+      "due": "2026-11-18",
+      "days": 80,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI039366",
+      "company_name": "PLACEGOOD DEVELOPMENTS LTD",
+      "kind": "idv_pending",
+      "severity": "warning",
+      "detail": "THOMPSON, Janice Elizabeth: личность не верифицирована, остаётся 80 дн.",
+      "due": "2026-11-18",
+      "days": 80,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI063252",
+      "company_name": "ROCKMOUNT DAY NURSERY LTD",
+      "kind": "idv_pending",
+      "severity": "warning",
+      "detail": "STEWART, Colin: личность не верифицирована, остаётся 80 дн.",
+      "due": "2026-11-18",
+      "days": 80,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "NI610706",
+      "company_name": "JJK AERO-CONTRACTS LTD",
+      "kind": "idv_pending",
+      "severity": "warning",
+      "detail": "KINLOCH, John James: личность не верифицирована, остаётся 90 дн.",
+      "due": "2026-11-28",
+      "days": 90,
+      "money_gbp": 0
+    }
+  ]
+}

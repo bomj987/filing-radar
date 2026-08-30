@@ -1,0 +1,41 @@
+{
+  "firm": {
+    "name": "HARMAN & HUNTER ACCOUNTANTS AND BUSINESS ADVISERS LTD",
+    "address": "43a St Mary's Road Market Harborough LE16 7DS"
+  },
+  "generated": "2026-08-30",
+  "book_size": 15,
+  "summary": {
+    "total": 2,
+    "critical": 0,
+    "warning": 2,
+    "idv_overdue": 0,
+    "idv_pending": 2,
+    "accounts_overdue": 0,
+    "confirmation_overdue": 0,
+    "money_gbp": 0,
+    "companies": 1
+  },
+  "findings": [
+    {
+      "company_number": "07046890",
+      "company_name": "R D ALLSOP PLASTERING SERVICES LIMITED",
+      "kind": "idv_pending",
+      "severity": "warning",
+      "detail": "ALLSOP, Robert David: личность не верифицирована, остаётся 56 дн.",
+      "due": "2026-10-25",
+      "days": 56,
+      "money_gbp": 0
+    },
+    {
+      "company_number": "07046890",
+      "company_name": "R D ALLSOP PLASTERING SERVICES LIMITED",
+      "kind": "idv_pending",
+      "severity": "warning",
+      "detail": "GREEN, Samuel: личность не верифицирована, остаётся 56 дн.",
+      "due": "2026-10-25",
+      "days": 56,
+      "money_gbp": 0
+    }
+  ]
+}

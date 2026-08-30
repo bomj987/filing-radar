@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Filing Radar — statutory risk across your whole client book</title>
+<meta name="description" content="A weekly list of the statutory risks sitting in your client book, built from the public Companies House register. Identity verification, overdue accounts, confirmation statements.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="wrap">
+  <div class="brand">Filing<span>&nbsp;Radar</span></div>
+  <div class="deadline">Directors' identity verification deadline<br><b id="countdown">18 November 2026</b></div>
+</div></header>
+
+<main class="wrap">
+
+<h1>Which of your clients' directors still haven't verified their identity?</h1>
+<p class="lede">Companies House publishes the answer for every company on the register.
+Nobody reads it across a whole client book. Filing Radar does, and emails you the list.</p>
+
+<p><a class="cta" href="#free">Get your firm's report — free, no signup</a></p>
+
+<h2>Why this is urgent, in the registry's own numbers</h2>
+<div class="scroll"><table>
+<thead><tr><th>Fact</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>Existing directors and PSCs must verify their identity by <strong>18 November 2026</strong>. Acting as a director without verification is a criminal offence under ECCTA.</td><td>Companies House / ECCTA 2023</td></tr>
+<tr><td>An unverified director blocks your filings: you cannot file a confirmation statement without their personal code.</td><td>Companies House guidance</td></tr>
+<tr><td><strong>317,985</strong> late-filing penalties issued in the year to April 2025 — up roughly 10% year on year.</td><td>Companies House</td></tr>
+<tr><td>Companies more than six months late rose from <strong>3,418</strong> (2019–20) to <strong>11,463</strong> (2023–24).</td><td>Companies House</td></tr>
+<tr><td>Since May 2024 Companies House can impose civil penalties of up to <strong>£10,000</strong> directly, and has added around 500 staff to enforcement.</td><td>Companies House</td></tr>
+</tbody>
+</table></div>
+
+<h2 id="free">What you get, before you pay anything</h2>
+<p>Send me your firm's name. I build your report from the public register and email it back.
+No signup, no card, no access to your systems. If it's useless, tell me and that's the end of it.</p>
+
+<div class="card">
+<h3>The report lists, for every company registered at your address:</h3>
+<ul>
+  <li><strong>Directors who must verify and haven't</strong> — with each one's personal deadline, which is often earlier than 18 November.</li>
+  <li><strong>Accounts overdue or due within 30 days</strong>, with the penalty already accruing at the Companies House scale.</li>
+  <li><strong>Confirmation statements overdue or due</strong> — the ground on which companies get struck off.</li>
+  <li><strong>Active companies with no serving officers</strong> — usually a filing that never happened.</li>
+</ul>
+<p style="margin:0"><a href="r/demo/">See a real example report</a> — generated from public data, unedited.</p>
+</div>
+
+<h2>How it works</h2>
+<ol>
+  <li><strong>Your client book comes from the register, not from you.</strong> Companies that use your address as their registered office are already public. Nothing is imported from your practice software.</li>
+  <li><strong>Every company is read directly from Companies House</strong> — the company record and the officers page. Every line in the report links back to the source so you can check it.</li>
+  <li><strong>You get one page you can act from</strong>, sorted so the criminal and the expensive sit at the top.</li>
+</ol>
+
+<h2>Price</h2>
+<div class="price">
+  <div class="card">
+    <h3>One-off report</h3>
+    <div class="amount">Free</div>
+    <p style="color:var(--muted);margin-top:10px">Your whole book, once. This is how I'd like you to judge whether the rest is worth anything.</p>
+  </div>
+  <div class="card">
+    <h3>Monitoring</h3>
+    <div class="amount">£79 <small>/ month</small></div>
+    <p style="color:var(--muted);margin-top:10px">The same report every Monday, showing only what changed. Cancel by replying to any of them.</p>
+  </div>
+</div>
+<p style="color:var(--muted);font-size:15px">This price is a test, not a rate card. If it is wrong I would rather be told than discover it in a churn number.</p>
+
+<h2>What this is not</h2>
+<div class="limits">
+<p><strong>It is not legal advice</strong> and not a compliance audit. It reports what the public register says and what the published deadlines are.</p>
+<p><strong>It does not replace anything free.</strong> Verifying identity directly with Companies House costs nothing, and Companies House already emails filing reminders to the companies themselves. What is missing is the view across a whole book at once — that is the only thing being sold here.</p>
+<p><strong>If your clients don't use your address</strong> as their registered office, the register cannot tell me who they are and this will not work for you. On a random sample of accountancy firms measured on 30 August 2026, roughly a quarter had ten or more companies at their address.</p>
+<p><strong>Secretaries are not included.</strong> Under ECCTA, company secretaries are not required to verify their identity, and the report does not list them. Getting this wrong is the fastest way to make a report worthless.</p>
+</div>
+
+<h2>Data and privacy</h2>
+<p>All data comes from the Companies House public register, published under the
+<a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="noopener">Open Government Licence v3.0</a>.
+No personal data is bought, scraped from private sources, or shared with anyone.
+Reports are generated on request and are not indexed by search engines.</p>
+<p>If you received an email about this and would rather not receive another, reply with
+the word <code>stop</code> and you will not be contacted again.</p>
+
+<h2>Who is behind this</h2>
+<p>One person, building it in the open. If the register changes shape, the report breaks
+loudly rather than quietly — the parser is covered by tests pinned to real saved pages.
+<a href="https://github.com/bomj987/filing-radar" rel="noopener">The code is public.</a></p>
+
+<p><a class="cta" href="mailto:matvejmazhuev@gmail.com?subject=Filing%20Radar%20report&body=Firm%20name%3A%20%0AAddress%20or%20company%20number%3A%20%0A">Email me your firm name for a free report</a></p>
+
+</main>
+
+<footer><div class="wrap">
+Filing Radar · data from the Companies House public register under OGL v3.0 ·
+this site sets no cookies and runs no third-party scripts.
+</div></footer>
+
+<script>
+// Обратный отсчёт до предельного срока верификации: единственный скрипт на странице,
+// без внешних зависимостей и без какой-либо отправки данных.
+(function () {
+  var el = document.getElementById('countdown');
+  if (!el) return;
+  var deadline = new Date('2026-11-18T00:00:00Z');
+  var days = Math.ceil((deadline - new Date()) / 86400000);
+  if (days > 0) el.textContent = days + ' days left · 18 November 2026';
+})();
+</script>
+</body>
+</html>

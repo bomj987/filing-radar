@@ -12,13 +12,13 @@ from datetime import date
 from .risk import CRITICAL, assess, summarise
 
 KIND_LABEL = {
-    "accounts_overdue": "Отчётность просрочена",
-    "accounts_due_soon": "Отчётность скоро",
-    "confirmation_overdue": "Confirmation statement просрочен",
-    "confirmation_due_soon": "Confirmation statement скоро",
-    "idv_overdue": "Верификация личности просрочена",
-    "idv_pending": "Личность не верифицирована",
-    "no_active_officers": "Нет действующих директоров",
+    "accounts_overdue": "Accounts overdue",
+    "accounts_due_soon": "Accounts due soon",
+    "confirmation_overdue": "Confirmation statement overdue",
+    "confirmation_due_soon": "Confirmation statement due soon",
+    "idv_overdue": "ID verification overdue",
+    "idv_pending": "ID not verified",
+    "no_active_officers": "No serving officers",
 }
 CH = "https://find-and-update.company-information.service.gov.uk/company/"
 
@@ -101,38 +101,102 @@ def to_html(report: dict) -> str:
     def tile(n, label, crit=False):
         return f'<div class="tile{" crit" if crit else ""}"><div class="n">{n}</div><div class="l">{label}</div></div>'
 
-    return f"""<!doctype html><html lang="ru"><head><meta charset="utf-8">
+    return f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>Filing Radar — {f_name}</title><style>{CSS}</style></head><body><div class="wrap">
-<h1>Статутарные риски: {f_name}</h1>
-<p class="sub">{html.escape(report["firm"]["address"])} · отчёт составлен {report["generated"]}
-· источник: публичный реестр Companies House</p>
+<h1>Statutory risk: {f_name}</h1>
+<p class="sub">{html.escape(report["firm"]["address"])} · report generated {report["generated"]}
+· source: the public Companies House register</p>
 <div class="tiles">
-{tile(report["book_size"], "компаний по адресу")}
-{tile(s["critical"], "критических находок", crit=s["critical"] > 0)}
-{tile(s["idv_overdue"] + s["idv_pending"], "директоров без верификации")}
-{tile("£" + f'{s["money_gbp"]:,}'.replace(",", " "), "оценка штрафов")}
+{tile(report["book_size"], "companies at this address")}
+{tile(s["critical"], "critical findings", crit=s["critical"] > 0)}
+{tile(s["idv_overdue"] + s["idv_pending"], "directors not yet verified")}
+{tile("£" + f'{s["money_gbp"]:,}', "estimated penalties")}
 </div>
-<h2>Находки — {s["total"]} по {s["companies"]} компаниям</h2>
-<div class="scroll"><table><thead><tr><th>Компания</th><th>Риск</th><th>Детали</th><th>Срок</th><th style="text-align:right">Штраф</th></tr></thead>
-<tbody>{"".join(rows) if rows else '<tr><td colspan="5">Находок нет — по этому адресу всё в порядке.</td></tr>'}</tbody></table></div>
-<h2>Как это посчитано и чего здесь нет</h2>
+<h2>Findings — {s["total"]} across {s["companies"]} companies</h2>
+<div class="scroll"><table><thead><tr><th>Company</th><th>Risk</th><th>Detail</th><th>Due</th><th style="text-align:right">Penalty</th></tr></thead>
+<tbody>{"".join(rows) if rows else '<tr><td colspan="5">No findings — everything at this address is in order.</td></tr>'}</tbody></table></div>
+<h2>How this was produced, and what it does not cover</h2>
 <div class="note">
-<p><strong>Источник.</strong> Только публичный реестр Companies House: карточка компании
-и страница должностных лиц. Никаких закрытых или купленных данных. Каждую строку
-можно проверить по ссылке в первой колонке.</p>
-<p><strong>Как определён список компаний.</strong> Это компании, у которых адрес
-регистрации совпадает с вашим. Если вы предоставляете клиентам адрес регистрации —
-это ваша клиентская база. Если по адресу сидят и другие организации, в списке
-будут лишние: скажите, и я их уберу.</p>
-<p><strong>Оценка штрафов</strong> — установленная шкала Companies House для частной
-компании (£150 / £375 / £750 / £1 500 по глубине просрочки). Удвоение за вторую
-просрочку подряд НЕ учтено, поэтому цифра занижена, а не завышена.</p>
-<p><strong>Чего здесь нет.</strong> Это не юридическая консультация и не полный
-compliance-аудит. Верификация личности напрямую в Companies House — бесплатна;
-этот отчёт не заменяет её, а показывает, у кого она ещё не пройдена.</p>
+<p><strong>Source.</strong> The public Companies House register only — the company record
+and the officers page for each company. No private or purchased data. Every row links
+back to the source so you can check it yourself.</p>
+<p><strong>How the company list was built.</strong> These are companies whose registered
+office address matches yours. If you provide a registered office service, this is your
+client book. If other organisations share the address, some rows will not be yours —
+say so and I will remove them.</p>
+<p><strong>Penalty estimates</strong> use the Companies House late-filing scale for a
+private company (£150 / £375 / £750 / £1,500 by lateness). The doubling that applies to a
+second consecutive late filing is <em>not</em> included, so the figure understates rather
+than overstates.</p>
+<p><strong>Secretaries are excluded.</strong> Under ECCTA, company secretaries are not
+required to verify their identity, and they are not listed here.</p>
+<p><strong>What this is not.</strong> Not legal advice and not a compliance audit.
+Verifying identity directly with Companies House is free; this report does not replace
+that, it shows you who has not done it.</p>
 </div>
-<footer>Filing Radar · данные Companies House под Open Government Licence v3.0 ·
-чтобы больше не получать такие отчёты, ответьте на письмо словом «stop»</footer>
+<footer>Filing Radar · Companies House data under the Open Government Licence v3.0 ·
+to receive no further reports, reply to the email with the word &ldquo;stop&rdquo;
+</footer>
 </div></body></html>"""
+
+
+# ---------------------------------------------------------------------------
+# Обезличивание и письмо
+# ---------------------------------------------------------------------------
+
+def anonymise(report: dict) -> dict:
+    """Копия отчёта без названий фирмы и клиентов.
+
+    Нужна для публичного образца: сам отчёт строится из открытого реестра, но
+    публиковать под именем конкретной практики сводку её проблем — значит
+    создавать ей репутационную экспозицию, о которой она не просила.
+    """
+    import copy
+    r = copy.deepcopy(report)
+    r["firm"] = {"name": "A UK accountancy practice", "address": "Sample — names removed"}
+    seen: dict[str, str] = {}
+    for f in r["findings"]:
+        num = f["company_number"]
+        seen.setdefault(num, f"Client company {len(seen) + 1}")
+        f["company_name"] = seen[num]
+        f["company_number"] = "—"
+        # Имя директора стоит первым в detail, до двоеточия.
+        if ": " in f["detail"]:
+            f["detail"] = "A director" + f["detail"][f["detail"].index(": "):]
+    return r
+
+
+EMAIL_CSS = ("font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif;"
+             "font-size:14px;line-height:1.5;color:#0b0c0c")
+
+
+def to_email_html(report: dict, limit: int = 12) -> str:
+    """Компактная таблица находок для тела письма.
+
+    Инлайновые стили и никаких внешних ресурсов: почтовые клиенты вырезают
+    <style> и блокируют загрузку по сети. Данные идут прямо в тело письма, а не
+    ссылкой — так у получателя нет причины никуда переходить, чтобы увидеть суть.
+    """
+    rows = []
+    for f in report["findings"][:limit]:
+        crit = f["severity"] == CRITICAL
+        colour = "#a4260a" if crit else "#7a4a00"
+        rows.append(
+            f'<tr>'
+            f'<td style="padding:6px 10px;border-bottom:1px solid #e5e9ec">'
+            f'<a href="{CH}{f["company_number"]}" style="color:#0b4f6c">{html.escape(f["company_name"] or "")}</a></td>'
+            f'<td style="padding:6px 10px;border-bottom:1px solid #e5e9ec;color:{colour};white-space:nowrap">'
+            f'{KIND_LABEL.get(f["kind"], f["kind"])}</td>'
+            f'<td style="padding:6px 10px;border-bottom:1px solid #e5e9ec">{html.escape(f["detail"])}</td>'
+            f'</tr>')
+    more = len(report["findings"]) - limit
+    tail = (f'<p style="{EMAIL_CSS};color:#505a5f">…and {more} more across the book.</p>'
+            if more > 0 else "")
+    return (f'<table style="border-collapse:collapse;{EMAIL_CSS}" cellpadding="0" cellspacing="0">'
+            f'<thead><tr>'
+            f'<th style="text-align:left;padding:6px 10px;border-bottom:2px solid #0b0c0c;font-size:12px">Company</th>'
+            f'<th style="text-align:left;padding:6px 10px;border-bottom:2px solid #0b0c0c;font-size:12px">Risk</th>'
+            f'<th style="text-align:left;padding:6px 10px;border-bottom:2px solid #0b0c0c;font-size:12px">Detail</th>'
+            f'</tr></thead><tbody>{"".join(rows)}</tbody></table>{tail}')

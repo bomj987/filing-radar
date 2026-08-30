@@ -59,7 +59,7 @@ class TestAssess(unittest.TestCase):
                                       verification_due=date(2025, 11, 18))])
         f = [x for x in assess(c, TODAY) if x.kind == "idv_overdue"][0]
         self.assertEqual(f.severity, "critical")
-        self.assertIn("истёк", f.detail)
+        self.assertIn("deadline passed", f.detail)
 
     def test_unverified_officer_without_date_falls_back_to_statutory_deadline(self):
         c = company(officers=[Officer(name="X", identity_verified=False, verification_required=True)])

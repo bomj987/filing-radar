@@ -62,26 +62,26 @@ def assess(company, today: date, soon_days: int = 30) -> list[Finding]:
     if company.accounts_overdue and company.accounts_next_due:
         late = (today - company.accounts_next_due).days
         add(kind="accounts_overdue", severity=CRITICAL,
-            detail=f"Отчётность просрочена на {late} дн. (срок был {company.accounts_next_due})",
+            detail=f"Accounts overdue by {late} days (were due {company.accounts_next_due})",
             due=company.accounts_next_due, days=-late,
             money_gbp=late_filing_penalty(late))
     elif company.accounts_next_due:
         left = (company.accounts_next_due - today).days
         if 0 <= left <= soon_days:
             add(kind="accounts_due_soon", severity=WARNING,
-                detail=f"Отчётность должна быть подана через {left} дн.",
+                detail=f"Accounts due in {left} days",
                 due=company.accounts_next_due, days=left, money_gbp=150)
 
     if company.confirmation_overdue and company.confirmation_next_due:
         late = (today - company.confirmation_next_due).days
         add(kind="confirmation_overdue", severity=CRITICAL,
-            detail=f"Confirmation statement просрочен на {late} дн. — основание для исключения из реестра",
+            detail=f"Confirmation statement overdue by {late} days — grounds for strike-off",
             due=company.confirmation_next_due, days=-late)
     elif company.confirmation_next_due:
         left = (company.confirmation_next_due - today).days
         if 0 <= left <= soon_days:
             add(kind="confirmation_due_soon", severity=WARNING,
-                detail=f"Confirmation statement должен быть подан через {left} дн.",
+                detail=f"Confirmation statement due in {left} days",
                 due=company.confirmation_next_due, days=left)
 
     for o in company.unverified_officers:
@@ -89,17 +89,17 @@ def assess(company, today: date, soon_days: int = 30) -> list[Finding]:
         left = (personal - today).days
         if left < 0:
             add(kind="idv_overdue", severity=CRITICAL,
-                detail=f"{o.name}: персональный срок верификации личности истёк {abs(left)} дн. назад — "
-                       f"подача документов заблокирована, действия директора без верификации образуют состав преступления по ECCTA",
+                detail=f"{o.name}: identity verification deadline passed {abs(left)} days ago — "
+                       f"filings are blocked, and acting as a director unverified is an offence under ECCTA",
                 due=personal, days=left)
         else:
             add(kind="idv_pending", severity=WARNING if left > 30 else CRITICAL,
-                detail=f"{o.name}: личность не верифицирована, остаётся {left} дн.",
+                detail=f"{o.name}: identity not verified, {left} days left",
                 due=personal, days=left)
 
     if not company.active_officers:
         add(kind="no_active_officers", severity=CRITICAL,
-            detail="У активной компании не числится ни одного действующего должностного лица")
+            detail="Active company with no serving officers on the register")
 
     out.sort(key=lambda f: (f.severity != CRITICAL, -f.money_gbp, f.days if f.days is not None else 0))
     return out

@@ -13,6 +13,24 @@ import re
 from .fetch import Fetcher
 from .parse import parse_company, parse_officers
 
+# Почтовый индекс Великобритании. Он — единственный надёжный различитель:
+# поиск реестра по адресу работает как частичное совпадение, поэтому
+# адрес вида "Unit A" матчит тысячи чужих компаний (наблюдалось 2026-08-30).
+POSTCODE_RE = re.compile(r"\b([A-Z]{1,2}\d[A-Z\d]?)\s*(\d[A-Z]{2})\b", re.I)
+
+# Столько компаний по одному адресу означает не клиентскую базу, а
+# сервисный офис или ошибку сопоставления. Отчёт по такому адресу бессмыслен.
+OVERMATCH_LIMIT = 600
+
+
+class AddressTooBroad(RuntimeError):
+    """Адрес не позволяет однозначно выделить клиентскую базу."""
+
+
+def postcode_of(addr: str) -> str | None:
+    m = POSTCODE_RE.search(addr)
+    return f"{m.group(1)} {m.group(2)}".upper() if m else None
+
 
 def normalise_address(addr: str) -> str:
     """Убирает 'United Kingdom' и схлопывает пробелы: строка идёт в поиск как есть."""
@@ -20,13 +38,32 @@ def normalise_address(addr: str) -> str:
 
 
 def companies_at_address(fetcher: Fetcher, address: str) -> list[dict]:
-    """Активные компании по адресу. Возвращает строки CSV реестра."""
+    """Активные компании по адресу, отфильтрованные по почтовому индексу.
+
+    Поиск реестра сопоставляет адрес частично, поэтому его результат
+    обязательно сужается: оставляем только строки, у которых индекс совпадает
+    с индексом практики. Без индекса в адресе работать нельзя — результат
+    будет включать чужие компании, а отчёт с чужими компаниями хуже, чем
+    отсутствие отчёта.
+    """
+    pc = postcode_of(address)
+    if not pc:
+        raise AddressTooBroad(f"в адресе нет почтового индекса: {address!r}")
+
     body = fetcher.get("/advanced-search/csv",
                        {"registeredOfficeAddress": normalise_address(address),
                         "status": "active"})
     if not body.lstrip().lower().startswith("company_name"):
         raise RuntimeError("реестр вернул не CSV — вероятно, изменился эндпоинт поиска")
-    return list(csv.DictReader(io.StringIO(body)))
+
+    rows = list(csv.DictReader(io.StringIO(body)))
+    matched = [r for r in rows
+               if postcode_of(r.get("registered_office_address", "") or "") == pc]
+    if len(matched) > OVERMATCH_LIMIT:
+        raise AddressTooBroad(
+            f"по адресу {address!r} найдено {len(matched)} компаний — это сервисный "
+            f"офис или слишком общий адрес, а не клиентская база")
+    return matched
 
 
 def load_company(fetcher: Fetcher, number: str):

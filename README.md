@@ -59,7 +59,7 @@ Writes `index.html`, `report.json` and `report.csv` into `--out`.
 cd engine && python3 -m unittest discover -s tests -t . -v
 ```
 
-23 tests, no network. Parser tests are pinned to real Companies House pages
+43 tests, no network. Parser tests are pinned to real Companies House pages
 saved in `fixtures/`, so if the registry's markup changes the suite fails
 loudly instead of silently producing wrong reports.
 

@@ -60,3 +60,37 @@ class TestCsv(unittest.TestCase):
         lines = to_csv(r).strip().split("\n")
         self.assertTrue(lines[0].startswith("company_number,"))
         self.assertEqual(len(lines) - 1, len(r["findings"]))
+
+
+class TestEmailSections(unittest.TestCase):
+    """Тема письма обещает конкретный тип находок — таблица обязана начинаться с него."""
+
+    def test_kinds_filter_selects_only_requested(self):
+        from filingradar.report import to_email_html
+        c = Company(number="1", name="X", status="Active",
+                    accounts_overdue=True, accounts_next_due=date(2026, 1, 1),
+                    officers=[Officer(name="A", role="Director",
+                                      verification_required=True, identity_verified=False)])
+        r = build([c], TODAY, "F", "1 Street L1 1AA")
+        idv = to_email_html(r, kinds=("idv_pending", "idv_overdue"))
+        self.assertIn("ID not verified", idv)
+        self.assertNotIn("Accounts overdue", idv)
+
+    def test_empty_filter_returns_empty_string_not_empty_table(self):
+        from filingradar.report import to_email_html
+        c = Company(number="1", name="X", status="Active",
+                    officers=[Officer(name="A", role="Director",
+                                      verification_required=True, identity_verified=True)])
+        r = build([c], TODAY, "F", "1 Street L1 1AA")
+        self.assertEqual(to_email_html(r, kinds=("idv_pending",)), "")
+
+
+class TestShortAddress(unittest.TestCase):
+    def test_drops_country_and_keeps_whole_words(self):
+        import sys as _s
+        _s.path.insert(0, str(Path(__file__).resolve().parents[1]))
+        from compose import short_address
+        got = short_address("Carter House G2 Wyvern Court Derby England DE21 6BF")
+        self.assertIn("Wyvern Court", got)
+        self.assertNotIn("England", got)
+        self.assertIn("DE21 6BF", got)

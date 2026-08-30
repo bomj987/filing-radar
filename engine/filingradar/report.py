@@ -172,15 +172,18 @@ EMAIL_CSS = ("font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif;"
              "font-size:14px;line-height:1.5;color:#0b0c0c")
 
 
-def to_email_html(report: dict, limit: int = 12) -> str:
+def to_email_html(report: dict, limit: int = 12, kinds: tuple[str, ...] | None = None) -> str:
     """Компактная таблица находок для тела письма.
 
     Инлайновые стили и никаких внешних ресурсов: почтовые клиенты вырезают
     <style> и блокируют загрузку по сети. Данные идут прямо в тело письма, а не
     ссылкой — так у получателя нет причины никуда переходить, чтобы увидеть суть.
     """
+    items = [f for f in report["findings"] if kinds is None or f["kind"] in kinds]
+    if not items:
+        return ""
     rows = []
-    for f in report["findings"][:limit]:
+    for f in items[:limit]:
         crit = f["severity"] == CRITICAL
         colour = "#a4260a" if crit else "#7a4a00"
         rows.append(
@@ -191,7 +194,7 @@ def to_email_html(report: dict, limit: int = 12) -> str:
             f'{KIND_LABEL.get(f["kind"], f["kind"])}</td>'
             f'<td style="padding:6px 10px;border-bottom:1px solid #e5e9ec">{html.escape(f["detail"])}</td>'
             f'</tr>')
-    more = len(report["findings"]) - limit
+    more = len(items) - limit
     tail = (f'<p style="{EMAIL_CSS};color:#505a5f">…and {more} more across the book.</p>'
             if more > 0 else "")
     return (f'<table style="border-collapse:collapse;{EMAIL_CSS}" cellpadding="0" cellspacing="0">'

@@ -59,7 +59,7 @@ class TestAssess(unittest.TestCase):
                                       verification_due=date(2025, 11, 18))])
         f = [x for x in assess(c, TODAY) if x.kind == "idv_overdue"][0]
         self.assertEqual(f.severity, "critical")
-        self.assertIn("which passed", f.detail)
+        self.assertIn("passed", f.detail)
         # Отчёт сообщает, что показывает реестр, и не даёт правовой квалификации
         # действиям названного человека.
         for legal_claim in ("offence", "criminal", "unlawful", "illegal"):

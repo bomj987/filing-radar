@@ -33,6 +33,14 @@ class TestAnonymise(unittest.TestCase):
         self.assertEqual(r["firm"]["name"], "REAL FIRM LTD")
         self.assertIn("ACME TRADING LTD", str(r))
 
+    def test_anonymiser_survives_a_change_of_detail_separator(self):
+        """Регрессия 2026-08-30: разделитель в detail поменялся с ': ' на ' — ',
+        обезличиватель был привязан к старому и перестал вырезать имена."""
+        r = sample()
+        for f in r["findings"]:
+            f["detail"] = f["detail"].replace(" — ", ": ", 1)
+        self.assertNotIn("SMITH, John", str(anonymise(r)))
+
     def test_findings_count_preserved(self):
         r = sample()
         self.assertEqual(len(anonymise(r)["findings"]), len(r["findings"]))

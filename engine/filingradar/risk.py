@@ -89,13 +89,11 @@ def assess(company, today: date, soon_days: int = 30) -> list[Finding]:
         left = (personal - today).days
         if left < 0:
             add(kind="idv_overdue", severity=CRITICAL,
-                detail=f"{o.name}: Companies House shows a verification due date of {personal}, "
-                       f"which passed {abs(left)} days ago — the company cannot file its "
-                       f"confirmation statement until this director supplies a personal code",
+                detail=f"{o.name} — verification due {personal}, passed {abs(left)} days ago",
                 due=personal, days=left)
         else:
             add(kind="idv_pending", severity=WARNING if left > 30 else CRITICAL,
-                detail=f"{o.name}: identity not verified, {left} days left",
+                detail=f"{o.name} — verification due {personal}, {left} days left",
                 due=personal, days=left)
 
     if not company.active_officers:

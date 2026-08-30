@@ -162,14 +162,24 @@ def anonymise(report: dict) -> dict:
         seen.setdefault(num, f"Client company {len(seen) + 1}")
         f["company_name"] = seen[num]
         f["company_number"] = "—"
-        # Имя директора стоит первым в detail, до двоеточия.
-        if ": " in f["detail"]:
-            f["detail"] = "A director" + f["detail"][f["detail"].index(": "):]
+        # Имя директора стоит первым в detail, до разделителя. Разделитель
+        # менялся (": " -> " — "), и привязка к одному варианту однажды уже
+        # привела к утечке имён в публичный образец — поэтому ищем любой.
+        for sep in (" — ", ": "):
+            if sep in f["detail"]:
+                f["detail"] = "A director" + f["detail"][f["detail"].index(sep):]
+                break
     return r
 
 
 EMAIL_CSS = ("font-family:-apple-system,Segoe UI,Helvetica,Arial,sans-serif;"
              "font-size:14px;line-height:1.5;color:#0b0c0c")
+# Стили держим на <table>, а не на каждой ячейке: письмо становится вчетверо
+# легче, а Gmail обрезает длинные письма и прячет концовку за «показать всё».
+TABLE_OPEN = (f'<table cellpadding="6" cellspacing="0" border="0" '
+              f'style="border-collapse:collapse;{EMAIL_CSS};width:100%;max-width:640px">')
+TH = ('<tr style="text-align:left;font-size:12px;color:#505a5f">'
+      '<th align="left">Company</th><th align="left">Risk</th><th align="left">Detail</th></tr>')
 
 
 def to_email_html(report: dict, limit: int = 12, kinds: tuple[str, ...] | None = None) -> str:
@@ -184,22 +194,14 @@ def to_email_html(report: dict, limit: int = 12, kinds: tuple[str, ...] | None =
         return ""
     rows = []
     for f in items[:limit]:
-        crit = f["severity"] == CRITICAL
-        colour = "#a4260a" if crit else "#7a4a00"
+        colour = "#a4260a" if f["severity"] == CRITICAL else "#7a4a00"
         rows.append(
-            f'<tr>'
-            f'<td style="padding:6px 10px;border-bottom:1px solid #e5e9ec">'
-            f'<a href="{CH}{f["company_number"]}" style="color:#0b4f6c">{html.escape(f["company_name"] or "")}</a></td>'
-            f'<td style="padding:6px 10px;border-bottom:1px solid #e5e9ec;color:{colour};white-space:nowrap">'
-            f'{KIND_LABEL.get(f["kind"], f["kind"])}</td>'
-            f'<td style="padding:6px 10px;border-bottom:1px solid #e5e9ec">{html.escape(f["detail"])}</td>'
-            f'</tr>')
+            f'<tr style="border-top:1px solid #e5e9ec">'
+            f'<td valign="top"><a href="{CH}{f["company_number"]}" style="color:#0b4f6c">'
+            f'{html.escape(f["company_name"] or "")}</a></td>'
+            f'<td valign="top" style="color:{colour}">{KIND_LABEL.get(f["kind"], f["kind"])}</td>'
+            f'<td valign="top">{html.escape(f["detail"])}</td></tr>')
     more = len(items) - limit
     tail = (f'<p style="{EMAIL_CSS};color:#505a5f">…and {more} more across the book.</p>'
             if more > 0 else "")
-    return (f'<table style="border-collapse:collapse;{EMAIL_CSS}" cellpadding="0" cellspacing="0">'
-            f'<thead><tr>'
-            f'<th style="text-align:left;padding:6px 10px;border-bottom:2px solid #0b0c0c;font-size:12px">Company</th>'
-            f'<th style="text-align:left;padding:6px 10px;border-bottom:2px solid #0b0c0c;font-size:12px">Risk</th>'
-            f'<th style="text-align:left;padding:6px 10px;border-bottom:2px solid #0b0c0c;font-size:12px">Detail</th>'
-            f'</tr></thead><tbody>{"".join(rows)}</tbody></table>{tail}')
+    return f'{TABLE_OPEN}<thead>{TH}</thead><tbody>{"".join(rows)}</tbody></table>{tail}'
